@@ -1,20 +1,45 @@
-const request = new XMLHttpRequest();
+const getPokemon = (resource, subfunction) => {
+    const request = new XMLHttpRequest();
 
-// check https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState 
-// 4 is where data is taken from API
-request.addEventListener('readystatechange', () => {
-    if (request.readyState === 4 && request.status === 200){
-        console.log(request.responseText);
-    } else if (request.readyState === 4) {
-        console.log("unable to fetch data")
+    // check https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState 
+    // 4 is where data is taken from API
+    request.addEventListener('readystatechange', () => {
+        if (request.readyState === 4 && request.status === 200){
+
+            //JSON demo
+            const data = JSON.parse(request.responseText);
+
+
+            // using subfunction
+            subfunction(undefined, data);
+        } else if (request.readyState === 4) {
+
+            // using subfunction
+            subfunction('could not fetch data','undefined');
+        }
+    })
+
+    // setting up request
+    request.open('GET', resource);
+    // send request
+    request.send()
+
+};
+
+// subfunction
+const checker = (err, data) => {
+    console.log("sub_function executed")
+    if(err){
+        console.log(err);
+    } else {
+        console.log(data);
     }
-})
+};
+// demo async
 
-// setting up request
-request.open('GET','https://jsonplaceholder.typicode.com/todos/');
-
-
-// send request
-request.send()
-
+console.log(1);
+console.log(2);
+getPokemon("pokemons/ash.json",checker);
+console.log(3);
+console.log(4);
 
