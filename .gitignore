@@ -1,2 +1,2 @@
 .devcontainer/*
-./node-express/node_modules/*
+node-express/node_modules/
