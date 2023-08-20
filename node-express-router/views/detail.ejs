@@ -1,0 +1,33 @@
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <!-- <%-  %> is used when referring other ejs -->
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="">
+        <h1><%= pokemon.name %></h1>
+        <p><%= pokemon.element %></p>
+        <p>
+            <%= pokemon.description %>
+        </p>
+        <br>
+        <button class="delete" data-doc="<%= pokemon._id %>">delete</button>
+    </div>
+
+    <script>
+        const del_pokemon = document.querySelector('button.delete')
+
+        del_pokemon.addEventListener('click', (e)=>{
+            const endpoint = `/pokemon/${del_pokemon.dataset.doc}`
+            
+            fetch(endpoint, {
+                method: "DELETE"
+            })
+            .then((respond)=>{respond.json()})
+            .then((data)=> console.log(data))
+            .catch((err) => console.log(err))
+        })
+    </script>
+
+</body>
+</html>

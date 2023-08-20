@@ -2,6 +2,7 @@
 
 // resolve func
 // response.json contain promise
+// fetch always resolve and get and reject as optional but recommended
 const resolve_func = (response) =>{
     console.log('resolved: ',response);
     return response.json()

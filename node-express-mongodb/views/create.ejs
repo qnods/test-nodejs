@@ -1,0 +1,20 @@
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <!-- <%-  %> is used when referring other ejs -->
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="create-pokemon">
+        <form action="/pokemon" method="POST">
+            <label for="name">Pokemon name: </label>
+            <input type="text" id="name" name="name" required>
+            <label for="element" >Pokemon element: </label>
+            <input type="text" id="element" name="element" required>
+            <label for="description">Pokemon description: </label>
+            <textarea id="description" name="description" required></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

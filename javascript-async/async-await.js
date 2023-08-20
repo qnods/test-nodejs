@@ -1,3 +1,6 @@
+// to avoid code blocker
+// async is to define the entire function as asynchronous function
+// await is used within async function to mark what that particular var is waiting for
 const getPokemon = async (path) => {
     const response  = await fetch(path);
 

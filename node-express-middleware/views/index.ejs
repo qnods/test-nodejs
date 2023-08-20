@@ -1,0 +1,30 @@
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <!-- <%-  %> is used when referring other ejs -->
+    <%- include('./partials/nav.ejs') %>
+
+
+
+    <div class = "pokemon-list">
+        <h2>All Pokemon</h2>
+        <% if (pocket_mons.length > 0) { %>
+            <% pocket_mons.forEach(mons => { %>
+                <h3 class="title"><%= mons.name %></h3>
+                <p class ="snippet"><%= mons.element %></p>
+            <% })  %>
+
+            <!-- alternative with for loop -->
+            <% for (x in pocket_mons) { %>
+                <h3 class="title"><%= pocket_mons[x].name %></h3>
+                <p class ="snippet"><%= pocket_mons[x].element %></p>
+            <% }  %>
+
+
+        <% } else { %>
+            <p>Start cacth your pokemon !!!</p>
+        <% } %>
+    </div>
+
+</body>
+</html>

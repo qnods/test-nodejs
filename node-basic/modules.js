@@ -1,6 +1,6 @@
-// const {pokemons, elements} = require('./pokemon-starter');
+const {pokemons, elements} = require('./pokemon-starter');
 
-// console.log(elements);
+console.log(elements);
 
 const os = require('os')
 

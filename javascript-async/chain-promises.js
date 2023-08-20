@@ -1,3 +1,5 @@
+// use promise to make code run in order
+
 const getPokemon = (resource) => {
 
     return new Promise((resolve,reject) => {
